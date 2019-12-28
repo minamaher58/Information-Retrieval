@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IRTest_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="IRTest_ModelStoreContainer">
+          <EntitySet Name="Bigram" EntityType="IRTest_Model.Store.Bigram" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EnglishPages" EntityType="IRTest_Model.Store.EnglishPages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="II_Stemming" EntityType="IRTest_Model.Store.II_Stemming" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="II_Stopwords" EntityType="IRTest_Model.Store.II_Stopwords" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SoundCodes" EntityType="IRTest_Model.Store.SoundCodes" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Bigram">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="gram" Type="varchar(max)" />
+          <Property Name="terms" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="EnglishPages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="URL" Type="varchar(max)" />
+          <Property Name="CONTENT" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="II_Stemming">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar(max)" />
+          <Property Name="docid" Type="int" />
+          <Property Name="frequency" Type="int" />
+          <Property Name="positions" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="II_Stopwords">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar(max)" />
+          <Property Name="docid" Type="int" />
+          <Property Name="frequency" Type="int" />
+          <Property Name="positions" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="SoundCodes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="varchar" MaxLength="50" />
+          <Property Name="terms" Type="varchar(max)" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IRTest_Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="IRTest_Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Bigrams" EntityType="IRTest_Model.Bigram" />
+          <EntitySet Name="EnglishPages" EntityType="IRTest_Model.EnglishPage" />
+          <EntitySet Name="II_Stemming" EntityType="IRTest_Model.II_Stemming" />
+          <EntitySet Name="II_Stopwords" EntityType="IRTest_Model.II_Stopwords" />
+          <EntitySet Name="SoundCodes" EntityType="IRTest_Model.SoundCode" />
+        </EntityContainer>
+        <EntityType Name="Bigram">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="gram" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="terms" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="EnglishPage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="URL" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CONTENT" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="II_Stemming">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="docid" Type="Int32" />
+          <Property Name="frequency" Type="Int32" />
+          <Property Name="positions" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="II_Stopwords">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="docid" Type="Int32" />
+          <Property Name="frequency" Type="Int32" />
+          <Property Name="positions" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SoundCode">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="terms" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IRTest_ModelStoreContainer" CdmEntityContainer="IRTest_Entities">
+          <EntitySetMapping Name="Bigrams">
+            <EntityTypeMapping TypeName="IRTest_Model.Bigram">
+              <MappingFragment StoreEntitySet="Bigram">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="gram" ColumnName="gram" />
+                <ScalarProperty Name="terms" ColumnName="terms" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EnglishPages">
+            <EntityTypeMapping TypeName="IRTest_Model.EnglishPage">
+              <MappingFragment StoreEntitySet="EnglishPages">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="II_Stemming">
+            <EntityTypeMapping TypeName="IRTest_Model.II_Stemming">
+              <MappingFragment StoreEntitySet="II_Stemming">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="docid" ColumnName="docid" />
+                <ScalarProperty Name="frequency" ColumnName="frequency" />
+                <ScalarProperty Name="positions" ColumnName="positions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="II_Stopwords">
+            <EntityTypeMapping TypeName="IRTest_Model.II_Stopwords">
+              <MappingFragment StoreEntitySet="II_Stopwords">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="docid" ColumnName="docid" />
+                <ScalarProperty Name="frequency" ColumnName="frequency" />
+                <ScalarProperty Name="positions" ColumnName="positions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SoundCodes">
+            <EntityTypeMapping TypeName="IRTest_Model.SoundCode">
+              <MappingFragment StoreEntitySet="SoundCodes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="terms" ColumnName="terms" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

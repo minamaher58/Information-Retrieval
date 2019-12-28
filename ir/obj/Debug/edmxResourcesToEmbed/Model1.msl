@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IRTest_ModelStoreContainer" CdmEntityContainer="IRTest_Entities">
+    <EntitySetMapping Name="Bigrams">
+      <EntityTypeMapping TypeName="IRTest_Model.Bigram">
+        <MappingFragment StoreEntitySet="Bigram">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gram" ColumnName="gram" />
+          <ScalarProperty Name="terms" ColumnName="terms" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnglishPages">
+      <EntityTypeMapping TypeName="IRTest_Model.EnglishPage">
+        <MappingFragment StoreEntitySet="EnglishPages">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="II_Stemming">
+      <EntityTypeMapping TypeName="IRTest_Model.II_Stemming">
+        <MappingFragment StoreEntitySet="II_Stemming">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="docid" ColumnName="docid" />
+          <ScalarProperty Name="frequency" ColumnName="frequency" />
+          <ScalarProperty Name="positions" ColumnName="positions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="II_Stopwords">
+      <EntityTypeMapping TypeName="IRTest_Model.II_Stopwords">
+        <MappingFragment StoreEntitySet="II_Stopwords">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="docid" ColumnName="docid" />
+          <ScalarProperty Name="frequency" ColumnName="frequency" />
+          <ScalarProperty Name="positions" ColumnName="positions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SoundCodes">
+      <EntityTypeMapping TypeName="IRTest_Model.SoundCode">
+        <MappingFragment StoreEntitySet="SoundCodes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="terms" ColumnName="terms" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IRTest_Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="IRTest_Entities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Bigrams" EntityType="IRTest_Model.Bigram" />
+    <EntitySet Name="EnglishPages" EntityType="IRTest_Model.EnglishPage" />
+    <EntitySet Name="II_Stemming" EntityType="IRTest_Model.II_Stemming" />
+    <EntitySet Name="II_Stopwords" EntityType="IRTest_Model.II_Stopwords" />
+    <EntitySet Name="SoundCodes" EntityType="IRTest_Model.SoundCode" />
+  </EntityContainer>
+  <EntityType Name="Bigram">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="gram" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="terms" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="EnglishPage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="URL" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="CONTENT" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="II_Stemming">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="docid" Type="Int32" />
+    <Property Name="frequency" Type="Int32" />
+    <Property Name="positions" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="II_Stopwords">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="docid" Type="Int32" />
+    <Property Name="frequency" Type="Int32" />
+    <Property Name="positions" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="SoundCode">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="terms" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+  </EntityType>
+</Schema>
